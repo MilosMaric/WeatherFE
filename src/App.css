@@ -8,5 +8,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(34,193,195,0.7) 0%, rgba(89,192,189,0.7) 50%, rgba(253,187,45,0.7) 100%);
+}
+
+.not-found-image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.not-found-image {
+    width: 150px;
+    height: 150px;
 }

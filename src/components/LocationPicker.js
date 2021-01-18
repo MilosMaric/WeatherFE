@@ -12,14 +12,16 @@ const LocationPicker = ({startFetch}) => {
     const generateOnChangeCallback = (stateSetter) => e => {
         stateSetter(e.target.value);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const delay = useCallback(debounce(() => {
         setIsFetchInProgress(true);
         startFetch({city, country}, () => setIsFetchInProgress(false));
-    }, 1000), [city, country]);
+    }, city.length ? 1000 : 0), [city, country]);
 
+    //TODO: Functionality to country field
     return (
         <div className='location-picker'>
-            <img src={`./${isFetchInProgress ? 'sunny' : 'cloudy'}.svg`} className='image' alt='WeatherIcon'/>
+            <img src={`./planet.svg`} className='image' alt='WeatherIcon'/>
             <input className='country-input'
                    value={country}
                    onChange={generateOnChangeCallback(setCountry)}
@@ -27,6 +29,7 @@ const LocationPicker = ({startFetch}) => {
             <input className='city-input'
                    onKeyUp={delay}
                    value={city}
+                   placeholder={'City name...'}
                    onChange={generateOnChangeCallback(setCity)}
             />
             <i className={iconClass}/>

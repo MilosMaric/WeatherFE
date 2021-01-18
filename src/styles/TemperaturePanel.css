@@ -1,0 +1,48 @@
+.daily-average-temperatures-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.daily-average-temperature-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.day-name {
+    color: dimgray;
+}
+
+.daily-temperature-day {
+    font-size: 1.5em;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.temperature-unit {
+    display: flex;
+    align-items: flex-start;
+    font-size: .8em;
+    color: whitesmoke;
+    margin-top: 7.5%;
+}
+
+.flex {
+    display: flex;
+}
+
+.avg-unit {
+    font-size: 1.5em;
+}
+
+.avg-day {
+    font-size: 3.5em;
+}
+
+.average-temp-for-period-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

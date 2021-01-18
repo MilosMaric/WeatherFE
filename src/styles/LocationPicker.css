@@ -3,16 +3,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
     padding: 5px 10px;
     width: fit-content;
-    border-radius: 5px;
+    border-radius: 5px;;
 }
 
 .image {
     width: 40px;
     height: 40px;
-    margin-right: 10px;
+    box-shadow: white;
 }
 
 input {

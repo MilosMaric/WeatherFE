@@ -1,0 +1,2 @@
+export const getWeekday = date => date.toLocaleDateString('en-gb', {weekday: 'long'})
+export const formatDate = date => date.toLocaleDateString('en-gb', {year: 'numeric', month: 'long', day: 'numeric'});
