@@ -1,8 +1,8 @@
 export const getWeatherData = ({city = '', country = '', callback}) => {
     //TODO: move app id to profile (e.g. prod) config
-    const appid = 'ffb03fb1d565a5fa4479d381bd66aa6b';
-    const url = new URL('http://api.openweathermap.org/data/2.5/forecast');
-    const params = {units: 'metric', q: city, appid};
+    const key = '2a19d08e195648fe9112504be834cee2';
+    const url = new URL('https://api.weatherbit.io/v2.0/forecast/daily');
+    const params = {days: '10', city, key};
 
     url.search = new URLSearchParams(params).toString();
 

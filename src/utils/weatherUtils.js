@@ -1,25 +1,23 @@
 const imageMapping = {
-    Rain: 'drop',
-    Snow: 'snowflake',
-    Clouds: 'cloudy',
-    Clear: 'sunny',
+    5: 'drop',
+    6: 'snowflake',
+    8: 'cloudy',
 }
 
-export const getImageName = text => {
-    const imageName = imageMapping[text];
-    !imageName && console.log('NOT FOUND: ', text);
+export const getImageName = code => {
+    const imageName = code === 800 ? 'sunny' : imageMapping[Math.round(code / 100)];
+    !imageName && console.log('NOT FOUND: ', code);
     return `./${imageName ? imageName : 'cloudy'}.svg`
 }
 
 export const mapApiResult = items =>
-    items ? items.filter(x => x.dt_txt.indexOf("12:00") > -1)
-        .map(x => {
-            return {
-                date: new Date(x.dt_txt),
-                average: Math.round(x.main.temp_max + x.main.temp_min / 2),
-                image: getImageName(x.weather[0].main)
-            }
-        }) : [];
+    items ? items.map(x => {
+        return {
+            date: new Date(x.datetime),
+            average: Math.round((x.min_temp + x.max_temp) / 2),
+            image: getImageName(x.weather.code)
+        }
+    }) : [];
 
 //TODO: Build gradient against avg temp
 export const getGradientText = avgTemp => {

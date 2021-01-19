@@ -14,8 +14,8 @@ function App() {
     const startFetch = ({city, country}, callback) => {
         if (city.length) {
             const cb = result => {
-                setLastFetchSuccess(result.cod === '200');
-                setWeatherByDay(mapApiResult(result.list))
+                setLastFetchSuccess(true);
+                setWeatherByDay(mapApiResult(result.data))
                 callback();
             }
             getWeatherData({city, callback: cb})
@@ -29,7 +29,7 @@ function App() {
         <div className='app' style={getGradientText(averageTemperature)}>
             <LocationPicker startFetch={startFetch}/>
             {lastFetchSuccess ? weatherByDay.length ?
-                <TemperaturePanel weatherByDay={weatherByDay} average={averageTemperature}/> :
+                <TemperaturePanel weatherByDay={weatherByDay.slice(1, 8)} average={averageTemperature}/> :
                 null :
                 <div className='not-found-image-container'>
                     <img src='./notfound.svg' className='not-found-image' alt='WeatherIcon'/>
