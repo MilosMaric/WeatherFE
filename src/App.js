@@ -26,7 +26,7 @@ function App() {
     };
 
     return (
-        <div className='app' style={getGradientText(averageTemperature)}>
+        <div className='app' style={getGradientText(weatherByDay)}>
             <LocationPicker startFetch={startFetch}/>
             {lastFetchSuccess ? weatherByDay.length ?
                 <TemperaturePanel weatherByDay={weatherByDay.slice(1, 8)} average={averageTemperature}/> :
